@@ -1,0 +1,27 @@
+package edu.kirkwood.view;
+
+import static edu.kirkwood.view.UIUtility.printMenu;
+import static edu.kirkwood.view.UserInput.getInt;
+
+public class MainMenu {
+    public static void show() {
+        String[] menuItems = {
+                "Marc's Fraction Calculator",
+                "Your Name's XXXXX Calculator",
+                "Quit"
+        };
+        String menuTitle = "Main Menu";
+        while(true) {
+            printMenu(menuTitle, menuItems);
+            int choice = getInt("Choose an option", false, 1, menuItems.length);
+            switch (choice) {
+                case 1:
+                    break;
+                case 2:
+                    break;
+                default:
+                    return;
+            }
+        }
+    }
+}
