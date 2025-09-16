@@ -1,5 +1,7 @@
 package edu.kirkwood.model;
 
+import java.util.Objects;
+
 /**
  * Represents a fraction with an integer numerator and denominator.
  * This class provides methods for fraction arithmetic, simplification
@@ -89,8 +91,23 @@ public class Fraction implements Comparable<Fraction> {
      */
     @Override
     public int compareTo(Fraction o) {
-        // Implementation needed
-        return 0;
+        int a = numerator * o.denominator;
+        int b = denominator * o.numerator;
+        return Integer.compare(a, b);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Fraction fraction = (Fraction) o;
+        simplify();
+        fraction.simplify();
+        return numerator == fraction.numerator && denominator == fraction.denominator;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(numerator, denominator);
     }
 
     /**
@@ -180,8 +197,11 @@ public class Fraction implements Comparable<Fraction> {
      * @return a new Fraction object representing the difference
      */
     public Fraction subtract(Fraction other) {
-        // Implementation needed
-        return null;
+        int newNumerator = numerator * other.denominator - denominator * other.numerator;
+        int newDenominator = denominator * other.denominator;
+        Fraction result =  new Fraction(newNumerator, newDenominator);
+        result.simplify();
+        return result;
     }
 
     /**
@@ -217,7 +237,25 @@ public class Fraction implements Comparable<Fraction> {
      * @throws IllegalArgumentException if the divisor is zero
      */
     public Fraction divide(Fraction other) {
-        // Implementation needed
-        return null;
+        Fraction result = new Fraction();
+        result.setNumerator(numerator * other.denominator);
+        result.setDenominator(denominator * other.numerator);
+        result.simplify();
+        return result;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
