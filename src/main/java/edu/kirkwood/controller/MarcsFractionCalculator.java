@@ -19,4 +19,55 @@ public class MarcsFractionCalculator {
         marcGoodbye();
         pressEnterToContinue();
     }
+
+    /**
+     * Split the user input into three parts: fraction 1, operator, fraction 2
+     *
+     * @param input the raw input string from the user
+     * @return String[] array with three Strings
+     * @throws IllegalArgumentException if input or operator are invalid
+     */
+    public static String[] splitInput(String input) {
+        String operator = "";
+        int operatorIndex = -1;
+        if(input.contains(" + ")) {
+            operator = "+";
+            operatorIndex = input.indexOf(" + ");
+        } else if(input.contains(" - ")) {
+            operator = "-";
+            operatorIndex = input.indexOf(" - ");
+        } else if(input.contains(" * ")) {
+            operator = "*";
+            operatorIndex = input.indexOf(" * ");
+        } else if(input.contains(" / ")) {
+            operator = "/";
+            operatorIndex = input.indexOf(" / ");
+        }
+
+        if(operatorIndex == -1) {
+            throw new IllegalArgumentException("Invalid format. Ensure operator (+, -, *, /) has space on both sides.");
+        }
+
+        String fraction1 = input.substring(0, operatorIndex).trim();
+        String fraction2 = input.substring(operatorIndex + 3).trim();
+
+        if(fraction1.isEmpty()) {
+            throw new IllegalArgumentException("First fraction is required");
+        }
+        if(fraction2.isEmpty()) {
+            throw new IllegalArgumentException("Second fraction is required");
+        }
+
+        return new String[]{fraction1, operator, fraction2};
+    }
 }
+
+
+
+
+
+
+
+
+
+
