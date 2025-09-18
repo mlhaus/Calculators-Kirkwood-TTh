@@ -1,5 +1,7 @@
 package edu.kirkwood.controller;
 
+import edu.kirkwood.model.Fraction;
+
 import static edu.kirkwood.view.Messages.*;
 import static edu.kirkwood.view.UIUtility.pressEnterToContinue;
 import static edu.kirkwood.view.UserInput.getString;
@@ -60,6 +62,98 @@ public class MarcsFractionCalculator {
 
         return new String[]{fraction1, operator, fraction2};
     }
+
+    /**
+     * Converts a String into a Fraction object. Handles whole numbers, improper and proper fractions, and mixed numbers
+     * @param str The String representing a fraction to be parsed
+     * @return a Fraction object representing the parsed String
+     * @throws IllegalArgumentException if the String's fraction format is not valid.
+     */
+    public static Fraction parseFraction(String str) {
+        Fraction result = null;
+        if(str.contains(" ")) { // Handle Mixed numbers (1 2/3 or -2 1/4)
+            String[] parts = str.split(" ", 2);
+            int whole = 0;
+            // Validate the whole number part
+            try {
+                whole = Integer.parseInt(parts[0]);
+            } catch (NumberFormatException e) {
+                throw new IllegalArgumentException("Invalid whole number: '" + str + "' (the correct format is '1 2/3' or '-1 2/3'");
+            }
+            // Validate if the fraction part is missing the forward slash
+            if(!parts[1].contains("/")) {
+                throw new IllegalArgumentException("Invalid mixed number format: '" + str + "' (the correct format is '1 2/3' or '-1 2/3'");
+            }
+
+            String[] fractionParts = parts[1].split("/");
+            int num = 0;
+            int den = 0;
+            // Validate if the numerator or denominator are not numbers
+            try {
+                num = Integer.parseInt(fractionParts[0]);
+            } catch(NumberFormatException e) {
+                throw new IllegalArgumentException("Invalid numerator: '" + str + "'");
+            }
+            try {
+                den = Integer.parseInt(fractionParts[1]);
+            } catch(NumberFormatException e) {
+                throw new IllegalArgumentException("Invalid denominator: '" + str + "'");
+            }
+
+            // Convert the results to an improper fraction
+            if(whole >= 0) {
+                // Invalid example "2 -1/3 or 2 1/-3)
+                if(num < 0 || den < 0) {
+                    throw new IllegalArgumentException("Invalid mixed number format: '" + str + "' (the correct format is '1 2/3' or '-1 2/3'");
+                }
+                num = whole * den + num;
+            } else if(whole < 0) {
+                num = whole * den - num;
+            }
+
+            try {
+                result = new Fraction(num, den);
+            } catch(ArithmeticException e) {
+                // Will have an error if denominator is 0
+                throw new IllegalArgumentException(e.getMessage() + ": '" + str + "'");
+            }
+
+
+        } else if(str.contains("/")) { // Handle proper and improper fraction (3/4 or -5/2)
+            String[] parts = str.split("/");
+            int num = 0;
+            int den = 0;
+            try {
+                num = Integer.parseInt(parts[0]);
+            } catch(NumberFormatException e) {
+                throw new IllegalArgumentException("Invalid numerator: '" + str + "'");
+            }
+            try {
+                den = Integer.parseInt(parts[1]);
+            } catch(NumberFormatException e) {
+                throw new IllegalArgumentException("Invalid denominator: '" + str + "'");
+            }
+
+            try {
+                result = new Fraction(num, den);
+            } catch(ArithmeticException e) {
+                // Will have an error if denominator is 0
+                throw new IllegalArgumentException(e.getMessage() + ": '" + str + "'");
+            }
+
+        } else { // Handle whole numbers (5 or -1)
+            int whole = 0;
+            try {
+                whole = Integer.parseInt(str);
+            } catch(NumberFormatException e) {
+                throw new IllegalArgumentException("Invalid whole number: '" + str + "'");
+            }
+            result = new Fraction(whole, 1);
+        }
+        return result;
+    }
+
+
 }
 
 
