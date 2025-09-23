@@ -1,13 +1,43 @@
 package edu.kirkwood.controller;
 
 import edu.kirkwood.model.Fraction;
+import edu.kirkwood.view.UIUtility;
+import edu.kirkwood.view.UserInput;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
+import org.mockito.MockedStatic;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.anyBoolean;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.mockStatic;
+import static org.mockito.Mockito.never;
 
 class MarcsFractionCalculatorTest {
+
+//    @Test
+//    void start_withValidInput_thenQuits() {
+//        // We are mocking static methods, so we need to use mockStatic in a try-with-resources block.
+//        try (MockedStatic<UserInput> staticUserInput = mockStatic(UserInput.class);
+//             MockedStatic<UIUtility> staticUIUtility = mockStatic(UIUtility.class)) {
+//
+//            // 1. ARRANGE (Stubbing the methods)
+//            // Tell our mock UserInput what to do when getString is called.
+//            // It will return "1/2 + 1/2" the first time, and "quit" the second time.
+//            staticUserInput.when(() -> UserInput.getString(anyString(), anyBoolean()))
+//                    .thenReturn("1/2 + 1/2", "quit");
+//
+//            // 2. ACT
+//            // Run the method we are testing.
+//            MarcsFractionCalculator.start();
+//
+//            // 3. ASSERT (Verifying interactions)
+//            // We can verify that our mock methods were called as expected.
+//            // Let's verify that displayError was NEVER called, because the input was valid.
+//            staticUIUtility.verify(() -> UIUtility.displayError(anyString()), never());
+//        }
+//    }
 
     @Test
     void splitInputWithAddition() {

@@ -3,6 +3,7 @@ package edu.kirkwood.controller;
 import edu.kirkwood.model.Fraction;
 
 import static edu.kirkwood.view.Messages.*;
+import static edu.kirkwood.view.UIUtility.displayError;
 import static edu.kirkwood.view.UIUtility.pressEnterToContinue;
 import static edu.kirkwood.view.UserInput.getString;
 
@@ -10,13 +11,53 @@ public class MarcsFractionCalculator {
     public static void start() {
         marcGreet();
         while(true) {
-            String value = getString("Enter your equation (or 'q' to quit): ");
-            if(value.equalsIgnoreCase("q") || value.equalsIgnoreCase("quit")) {
+            String input = getString("Enter your equation (or 'q' to quit): ");
+            if(input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit")) {
                 break;
             }
-            // Todo: Validate the input
-            // Todo: Perform mathematical operation
-            // Todo: Display output
+            // Validate the input
+            String[] parts = null;
+            try {
+                parts = splitInput(input);
+            } catch (IllegalArgumentException e) {
+                displayError(e.getMessage());
+                continue; // Restart the loop
+            }
+
+            String fraction1Str = parts[0];
+            String operator = parts[1];
+            String fraction2Str = parts[2];
+
+            Fraction f1 = null;
+            Fraction f2 = null;
+            try {
+                f1 = parseFraction(fraction1Str);
+                f2 = parseFraction(fraction2Str);
+            } catch (IllegalArgumentException e) {
+                displayError(e.getMessage());
+                continue; // Restart the loop
+            }
+
+            // Perform mathematical operation
+            Fraction result = null;
+            switch (operator) {
+                case "+":
+                    result = f1.add(f2);
+                    break;
+                case "-":
+                    result = f1.subtract(f2);
+                    break;
+                case "*":
+                    result = f1.multiply(f2);
+                    break;
+                case "/":
+                    result = f1.divide(f2);
+                    break;
+            }
+
+            // Display output
+            System.out.printf("%s %s %s = %s%n%n", f1.toString(), operator, f2.toString(), result.toString());
+
         }
         marcGoodbye();
         pressEnterToContinue();

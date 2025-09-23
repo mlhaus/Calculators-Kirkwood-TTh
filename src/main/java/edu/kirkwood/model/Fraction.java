@@ -80,7 +80,7 @@ public class Fraction implements Comparable<Fraction> {
      */
     @Override
     public String toString() {
-        return numerator + "/" + denominator;
+        return toMixedNumber(numerator, denominator);
     }
 
     /**
@@ -170,7 +170,11 @@ public class Fraction implements Comparable<Fraction> {
         if (numerator == 0) {
             result = wholeNum + "";
         } else {
-            result = wholeNum + " " + numerator + "/" + f1.getDenominator();
+            if(wholeNum != 0) {
+                result = wholeNum + " " + numerator + "/" + f1.getDenominator();
+            } else {
+                result = numerator + "/" + f1.getDenominator();
+            }
         }
 
         return result;

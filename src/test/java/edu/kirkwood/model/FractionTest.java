@@ -62,8 +62,10 @@ class FractionTest {
 
     @Test
     void testToString() {
-        assertEquals("1/1", f1.toString());
+        assertEquals("1", f1.toString());
         assertEquals("2/3", f2.toString());
+        f2.setNumerator(7);
+        assertEquals("2 1/3", f2.toString());
     }
 
     @Test
@@ -215,6 +217,11 @@ class FractionTest {
         assertEquals("1 2/9", Fraction.toMixedNumber(11, 9));
         assertEquals("1", Fraction.toMixedNumber(3, 3));
         assertEquals("3", Fraction.toMixedNumber(9, 3));
+    }
+
+    @Test
+    void toMixedNumberNoWhole() {
+        assertEquals("2/3", Fraction.toMixedNumber(2, 3));
     }
 
     @Test
