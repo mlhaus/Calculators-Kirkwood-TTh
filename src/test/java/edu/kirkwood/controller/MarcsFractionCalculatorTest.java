@@ -11,33 +11,52 @@ import org.mockito.MockedStatic;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.anyBoolean;
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.mockStatic;
-import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.*;
 
 class MarcsFractionCalculatorTest {
 
-//    @Test
-//    void start_withValidInput_thenQuits() {
-//        // We are mocking static methods, so we need to use mockStatic in a try-with-resources block.
-//        try (MockedStatic<UserInput> staticUserInput = mockStatic(UserInput.class);
-//             MockedStatic<UIUtility> staticUIUtility = mockStatic(UIUtility.class)) {
-//
-//            // 1. ARRANGE (Stubbing the methods)
-//            // Tell our mock UserInput what to do when getString is called.
-//            // It will return "1/2 + 1/2" the first time, and "quit" the second time.
-//            staticUserInput.when(() -> UserInput.getString(anyString(), anyBoolean()))
-//                    .thenReturn("1/2 + 1/2", "quit");
-//
-//            // 2. ACT
-//            // Run the method we are testing.
-//            MarcsFractionCalculator.start();
-//
-//            // 3. ASSERT (Verifying interactions)
-//            // We can verify that our mock methods were called as expected.
-//            // Let's verify that displayError was NEVER called, because the input was valid.
-//            staticUIUtility.verify(() -> UIUtility.displayError(anyString()), never());
-//        }
-//    }
+    @Test
+    void startWithValidInput() {
+        // We are mocking static methods, so we need to use mockStatic in a try-with-resources block.
+        try (
+             MockedStatic<UserInput> staticUserInput = mockStatic(UserInput.class);
+             MockedStatic<UIUtility> staticUIUtility = mockStatic(UIUtility.class)) {
+
+            // 1. ARRANGE (Stubbing the methods)
+            // Tell our mock UserInput what to do when getString is called.
+            // It will return "1/2 + 1/2" the first time, and "quit" the second time.
+            staticUserInput.when(() -> UserInput.getString(anyString())).thenReturn("1/2 + 1/2", "quit");
+
+            // 2. ACT
+            // Run the method we are testing.
+            MarcsFractionCalculator.start();
+
+            // 3. ASSERT (Verifying interactions)
+            // We can verify that our mock methods were called as expected.
+            // Let's verify that displayError was NEVER called, because the input was valid.
+            staticUIUtility.verify(() -> UIUtility.displayError(anyString()), never());
+        }
+    }
+
+    @Test
+    void startWithInValidInput() {
+        // We are mocking static methods, so we need to use mockStatic in a try-with-resources block.
+        try (
+                MockedStatic<UserInput> staticUserInput = mockStatic(UserInput.class);
+                MockedStatic<UIUtility> staticUIUtility = mockStatic(UIUtility.class)) {
+
+            // 1. ARRANGE
+            // The ^ operator is not valid
+            staticUserInput.when(() -> UserInput.getString(anyString())).thenReturn("1/2 ^ 1/2", "quit");
+
+            // 2. ACT
+            MarcsFractionCalculator.start();
+
+            // 3. ASSERT 
+            // I assert that the displayError method was called once
+            staticUIUtility.verify(() -> UIUtility.displayError(anyString()), times(1));
+        }
+    }
 
     @Test
     void splitInputWithAddition() {

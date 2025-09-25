@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"edu.kirkwood.model"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"edu.kirkwood"},{"l":"edu.kirkwood.controller"},{"l":"edu.kirkwood.model"},{"l":"edu.kirkwood.view"}];updateSearchResults();
