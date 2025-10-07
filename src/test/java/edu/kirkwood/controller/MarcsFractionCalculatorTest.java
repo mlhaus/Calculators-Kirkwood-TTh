@@ -19,8 +19,8 @@ class MarcsFractionCalculatorTest {
     void startWithValidInput() {
         // We are mocking static methods, so we need to use mockStatic in a try-with-resources block.
         try (
-             MockedStatic<UserInput> staticUserInput = mockStatic(UserInput.class);
-             MockedStatic<UIUtility> staticUIUtility = mockStatic(UIUtility.class)) {
+                MockedStatic<UserInput> staticUserInput = mockStatic(UserInput.class);
+                MockedStatic<UIUtility> staticUIUtility = mockStatic(UIUtility.class)) {
 
             // 1. ARRANGE (Stubbing the methods)
             // Tell our mock UserInput what to do when getString is called.

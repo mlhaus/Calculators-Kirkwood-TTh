@@ -9,6 +9,11 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 public class Helpers {
+    // Emilia
+    /** This method returns a bool for if a string isn't null or empty.
+     * @param str The string needing validation.
+     * @return Returns true if string is not null or empty, false if otherwise.
+     */
     public static boolean isValidString(String str) {
         return str != null && !str.equals("");
     }
@@ -19,6 +24,12 @@ public class Helpers {
         return bigDecimal.toString();
     }
 
+    // Celeste
+    /**
+     * Formats a given double value into USD
+     * @param amt The double value to be formatted
+     * @return A String formatted into USD
+     */
     public static String toCurrency(double amt) {
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
         return formatter.format(amt);
