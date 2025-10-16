@@ -18,6 +18,14 @@ public class Helpers {
         return str != null && !str.equals("");
     }
 
+    // Camren
+    /*
+     * Rounds a decimal number to a specified number of decimal places
+     *
+     * @param number        the number to round
+     * @param numDecPlaces  the number of decimal places to retain
+     * @return a rounded number as a string without trailing zeros
+     */
     public static String round(double number, int numDecPlaces) {
         BigDecimal bigDecimal = new BigDecimal(Double.toString(number));
         bigDecimal = bigDecimal.setScale(numDecPlaces, RoundingMode.HALF_UP).stripTrailingZeros();
@@ -45,6 +53,13 @@ public class Helpers {
         return dateFormatOutput.format(date);
     }
 
+    // Asle and Logan
+    /**
+     * Function to test if given date is in the past.
+     * Takes a date, checks if its null, if not returns true or false based on if date is in past or not
+     * @param date Date to be checked
+     * @return A boolean, true if date is in past, false if not
+     */
     public static boolean isDateInThePast(LocalDate date) {
         if (date == null) {
             throw new IllegalArgumentException("Date cannot be null");
