@@ -20,4 +20,16 @@ public class Messages {
     public static void marcGoodbye() {
         displayMessage("Thank you for using Marc's Fraction Calculator");
     }
+
+    public static void emiliaGreet() {
+        displayMessage("Welcome to Emilia's Pythagorean Theorem");
+        System.out.println("Enter calculations in the format: [side 1] [side 2] [decimal place]");
+        System.out.println("Example: 5.24 3.23 2");
+        System.out.println("You may leave off the decimal place for a default decimal place of two.");
+    }
+
+    public static void emiliaGoodbye() {
+        displayMessage("\nThank you for using Emilia's Pythagorean Theorem Calculator!");
+    }
+
 }
