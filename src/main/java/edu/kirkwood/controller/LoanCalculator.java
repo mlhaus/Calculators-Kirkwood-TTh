@@ -4,7 +4,7 @@ import edu.kirkwood.model.Loan;
 import edu.kirkwood.view.Helpers;
 
 import static edu.kirkwood.view.Messages.*;
-import static edu.kirkwood.view.UiUtility.*;
+import static edu.kirkwood.view.UIUtility.*;
 import static edu.kirkwood.view.UserInput.getString;
 
 /**
@@ -32,7 +32,7 @@ public class LoanCalculator {
      * and payments per term.
      */
     public static void start() {
-        Hello();
+        CamrenHello();
         while (true) {
             try {
                 // --- Principal ---
@@ -78,7 +78,7 @@ public class LoanCalculator {
 
             pressEnterToContinue();
         }
-        Goodbye();
+        CamrenGoodbye();
     }
 
     //used GPT 5.0 to polish my parse methods.
