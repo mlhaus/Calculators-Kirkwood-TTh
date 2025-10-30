@@ -9,7 +9,7 @@ public class MainMenu {
     public static void show() {
         String[] menuItems = {
                 "Marc's Fraction Calculator",
-                "Your Name's XXXXX Calculator",
+                "Logan's Blood Pressure Calculator",
                 "Quit"
         };
         String menuTitle = "Main Menu";

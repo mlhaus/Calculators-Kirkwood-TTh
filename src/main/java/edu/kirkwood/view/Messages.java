@@ -1,6 +1,7 @@
 package edu.kirkwood.view;
 
 import static edu.kirkwood.view.UIUtility.displayMessage;
+import static edu.kirkwood.view.UIUtility.printLine;
 
 public class Messages {
     public static void hello() {
@@ -32,4 +33,17 @@ public class Messages {
         displayMessage("\nThank you for using Emilia's Pythagorean Theorem Calculator!");
     }
 
+    public static void loganGreet() {
+        System.out.println();
+        displayMessage("Welcome to Logan's Blood Pressure Calculator");
+        System.out.println("\nEnter blood pressure in the format: [Systolic] / [Diastolic]" +
+                "\nThe mean arterial pressure will be calculated and displayed\nas 'Systolic/Diastolic (MAP)'");
+        System.out.println("\tExample: 120/80 -> 120/80 (93)");
+        printLine();
+
+    }
+
+    public static void loganGoodbye() {
+        displayMessage("\t\t" + "Thank you for using Logan's Blood Pressure Calculator");
+    }
 }
