@@ -1,5 +1,6 @@
 package edu.kirkwood.view;
 
+import edu.kirkwood.controller.CoopersCompoundInterestCalculator;
 import edu.kirkwood.controller.CaelsTemperatureCalculator;
 import edu.kirkwood.controller.EmiliasPythagoreanTheorem;
 import edu.kirkwood.controller.MarcsFractionCalculator;
@@ -11,6 +12,7 @@ public class MainMenu {
     public static void show() {
         String[] menuItems = {
                 "Marc's Fraction Calculator",
+                "Cooper's Compound Interest Calculator",
                 "Cael's Temperature Calculator",
                 "Emilia's Pythagorean Theorem Calculator",
                 "Quit"
@@ -24,9 +26,12 @@ public class MainMenu {
                     MarcsFractionCalculator.start();
                     break;
                 case 2:
-                    CaelsTemperatureCalculator.start();
+                    CoopersCompoundInterestCalculator.start();
                     break;
                 case 3:
+                    CaelsTemperatureCalculator.start();
+                    break;
+                case 4:
                     EmiliasPythagoreanTheorem.start();
                     break;
                 default:
