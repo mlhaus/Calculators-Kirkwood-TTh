@@ -32,4 +32,12 @@ public class Messages {
         displayMessage("\nThank you for using Emilia's Pythagorean Theorem Calculator!");
     }
 
+     public static void CamrenHello(){
+        displayMessage("Welcome to Munn's Loan Calculator!");
+    }
+
+    public static void CamrenGoodbye(){
+        displayMessage("Thank you for using my application, GoodBye.");
+    }
+
 }
