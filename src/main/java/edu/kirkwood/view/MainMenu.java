@@ -1,5 +1,6 @@
 package edu.kirkwood.view;
 
+import edu.kirkwood.controller.BloodPressureCalculator;
 import edu.kirkwood.controller.MarcsFractionCalculator;
 
 import static edu.kirkwood.view.UIUtility.printMenu;
@@ -21,6 +22,7 @@ public class MainMenu {
                     MarcsFractionCalculator.start();
                     break;
                 case 2:
+                    BloodPressureCalculator.start();
                     break;
                 default:
                     return;
