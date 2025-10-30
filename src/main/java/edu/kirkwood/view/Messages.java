@@ -21,6 +21,17 @@ public class Messages {
         displayMessage("Thank you for using Marc's Fraction Calculator");
     }
 
+    public static void mouftaouGreet() {
+        displayMessage("Welcome to Mouftaou's Temperature Calculator");
+        System.out.println("Enter calculations in one of the following formats:");
+        System.out.println(" - [temperature] + [temperature]  (e.g. 25 K + 87 F)");
+        System.out.println(" - [temperature] - [temperature]  (e.g. 58 C - 15 F)");
+        System.out.println(" - convert [temperature] to [scale]  (e.g. convert 35 F to K)");
+    }
+
+    public static void mouftaouGoodbye() {
+        displayMessage("Thank you for using Mouftaou's Temperature Calculator");
+    }
     public static void emiliaGreet() {
         displayMessage("Welcome to Emilia's Pythagorean Theorem");
         System.out.println("Enter calculations in the format: [side 1] [side 2] [decimal place]");
@@ -40,5 +51,15 @@ public class Messages {
 
     public static void cooperGoodbye(){
         displayMessage("Thank you for using Cooper's Compounding Interest Calculator!");
+    }
+  
+    public static void caelGreet() {
+        displayMessage("Welcome to Cael's Temperature Calculator");
+        System.out.println("Enter calculations in the format: [number], [scale], [number], [scale]");
+        System.out.println("Example: 1 f + 2 f");
+    }
+
+    public static void caelGoodbye() {
+        displayMessage("Thank you for using Cael's Temperature Calculator");
     }
 }

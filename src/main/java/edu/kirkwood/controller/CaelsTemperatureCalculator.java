@@ -2,6 +2,8 @@ package edu.kirkwood.controller;
 
 import edu.kirkwood.model.TemperatureEntry;
 
+import static edu.kirkwood.view.Messages.caelGoodbye;
+import static edu.kirkwood.view.Messages.caelGreet;
 import static edu.kirkwood.view.UserInput.getFloat;
 import static edu.kirkwood.view.UserInput.getString;
 
