@@ -64,6 +64,8 @@ public class Messages {
 
     public static void loganGoodbye() {
         displayMessage("\t\t" + "Thank you for using Logan's Blood Pressure Calculator");
+    }
+
     public static void cooperGreet(){
         displayMessage("Welcome to Cooper's Compounding Interest Calculator");
         System.out.println("Formula parts:\n - Principal: P\n - Interest Rate: r\n - Periods per Year: n\n - Time (in years): t");
