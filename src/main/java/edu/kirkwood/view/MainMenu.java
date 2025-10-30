@@ -1,6 +1,9 @@
 package edu.kirkwood.view;
 
 import edu.kirkwood.controller.BloodPressureCalculator;
+import edu.kirkwood.controller.CoopersCompoundInterestCalculator;
+import edu.kirkwood.controller.CaelsTemperatureCalculator;
+import edu.kirkwood.controller.EmiliasPythagoreanTheorem;
 import edu.kirkwood.controller.MarcsFractionCalculator;
 
 import static edu.kirkwood.view.UIUtility.printMenu;
@@ -11,6 +14,9 @@ public class MainMenu {
         String[] menuItems = {
                 "Marc's Fraction Calculator",
                 "Logan's Blood Pressure Calculator",
+                "Cooper's Compound Interest Calculator",
+                "Cael's Temperature Calculator",
+                "Emilia's Pythagorean Theorem Calculator",
                 "Quit"
         };
         String menuTitle = "Main Menu";
@@ -23,6 +29,15 @@ public class MainMenu {
                     break;
                 case 2:
                     BloodPressureCalculator.start();
+                    break;
+                case 3:
+                    CoopersCompoundInterestCalculator.start();
+                    break;
+                case 4:
+                    CaelsTemperatureCalculator.start();
+                    break;
+                case 5:
+                    EmiliasPythagoreanTheorem.start();
                     break;
                 default:
                     return;

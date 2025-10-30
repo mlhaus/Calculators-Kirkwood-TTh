@@ -22,6 +22,17 @@ public class Messages {
         displayMessage("Thank you for using Marc's Fraction Calculator");
     }
 
+    public static void mouftaouGreet() {
+        displayMessage("Welcome to Mouftaou's Temperature Calculator");
+        System.out.println("Enter calculations in one of the following formats:");
+        System.out.println(" - [temperature] + [temperature]  (e.g. 25 K + 87 F)");
+        System.out.println(" - [temperature] - [temperature]  (e.g. 58 C - 15 F)");
+        System.out.println(" - convert [temperature] to [scale]  (e.g. convert 35 F to K)");
+    }
+
+    public static void mouftaouGoodbye() {
+        displayMessage("Thank you for using Mouftaou's Temperature Calculator");
+    }
     public static void emiliaGreet() {
         displayMessage("Welcome to Emilia's Pythagorean Theorem");
         System.out.println("Enter calculations in the format: [side 1] [side 2] [decimal place]");
@@ -45,5 +56,23 @@ public class Messages {
 
     public static void loganGoodbye() {
         displayMessage("\t\t" + "Thank you for using Logan's Blood Pressure Calculator");
+    public static void cooperGreet(){
+        displayMessage("Welcome to Cooper's Compounding Interest Calculator");
+        System.out.println("Formula parts:\n - Principal: P\n - Interest Rate: r\n - Periods per Year: n\n - Time (in years): t");
+        System.out.println("Enter formula in one of two forms:\n - Normal: P(1 + (r / n))^(n * t)\n - Continuous Compounding: P(e)^(r * t)");
+    }
+
+    public static void cooperGoodbye(){
+        displayMessage("Thank you for using Cooper's Compounding Interest Calculator!");
+    }
+  
+    public static void caelGreet() {
+        displayMessage("Welcome to Cael's Temperature Calculator");
+        System.out.println("Enter calculations in the format: [number], [scale], [number], [scale]");
+        System.out.println("Example: 1 f + 2 f");
+    }
+
+    public static void caelGoodbye() {
+        displayMessage("Thank you for using Cael's Temperature Calculator");
     }
 }
