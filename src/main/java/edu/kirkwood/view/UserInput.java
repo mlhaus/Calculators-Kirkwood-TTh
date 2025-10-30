@@ -176,4 +176,51 @@ public class UserInput {
         }
         return date;
     }
+    public static float getFloat(String prompt) {
+        return getFloat(prompt, true, -Float.MAX_VALUE, Float.MAX_VALUE);
+    }
+
+    public static float getFloat(String prompt, boolean required) {
+        return getFloat(prompt, required, -Float.MAX_VALUE, Float.MAX_VALUE);
+    }
+
+    public static float getFloat(String prompt, boolean required, float min) {
+        return getFloat(prompt, required, min, Float.MAX_VALUE);
+    }
+
+    public static float getFloat(String prompt, boolean required, float min, float max) {
+        float value = 0f;
+
+        String minMax = "";
+        if (min != -Float.MAX_VALUE && max == Float.MAX_VALUE) {
+            minMax = String.format(" [minimum %.1f]", min);
+        }
+        if (min != -Float.MAX_VALUE && max != Float.MAX_VALUE) {
+            minMax = String.format(" [between %.1f and %.1f]", min, max);
+        }
+
+        while (true) {
+            System.out.print(prompt + minMax + (required ? " (*)" : "") + ": ");
+            String valueStr = scanner.nextLine();
+            try {
+                value = Float.parseFloat(valueStr);
+            } catch (NumberFormatException e) {
+                if (!required) {
+                    return -Float.MAX_VALUE;
+                } else {
+                    displayError("Invalid number");
+                    continue;
+                }
+            }
+
+            if (value < min) {
+                displayError("Value too low");
+            } else if (value > max) {
+                displayError("Value too high");
+            } else {
+                break;
+            }
+        }
+        return value;
+    }
 }
