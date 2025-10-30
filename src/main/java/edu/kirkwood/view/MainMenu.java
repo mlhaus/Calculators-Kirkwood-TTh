@@ -1,5 +1,6 @@
 package edu.kirkwood.view;
 
+import edu.kirkwood.controller.CaelsTemperatureCalculator;
 import edu.kirkwood.controller.MarcsFractionCalculator;
 
 import static edu.kirkwood.view.UIUtility.printMenu;
@@ -9,7 +10,7 @@ public class MainMenu {
     public static void show() {
         String[] menuItems = {
                 "Marc's Fraction Calculator",
-                "Your Name's XXXXX Calculator",
+                "Cael's Temperature Calculator",
                 "Quit"
         };
         String menuTitle = "Main Menu";
@@ -21,6 +22,7 @@ public class MainMenu {
                     MarcsFractionCalculator.start();
                     break;
                 case 2:
+                    CaelsTemperatureCalculator.start();
                     break;
                 default:
                     return;

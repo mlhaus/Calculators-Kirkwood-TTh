@@ -32,4 +32,13 @@ public class Messages {
         displayMessage("\nThank you for using Emilia's Pythagorean Theorem Calculator!");
     }
 
+    public static void caelGreet() {
+        displayMessage("Welcome to Cael's Temperature Calculator");
+        System.out.println("Enter calculations in the format: [number], [scale], [number], [scale]");
+        System.out.println("Example: 1 f + 2 f");
+    }
+
+    public static void caelGoodbye() {
+        displayMessage("Thank you for using Cael's Temperature Calculator");
+    }
 }
