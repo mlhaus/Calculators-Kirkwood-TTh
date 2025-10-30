@@ -32,4 +32,13 @@ public class Messages {
         displayMessage("\nThank you for using Emilia's Pythagorean Theorem Calculator!");
     }
 
+    public static void cooperGreet(){
+        displayMessage("Welcome to Cooper's Compounding Interest Calculator");
+        System.out.println("Formula parts:\n - Principal: P\n - Interest Rate: r\n - Periods per Year: n\n - Time (in years): t");
+        System.out.println("Enter formula in one of two forms:\n - Normal: P(1 + (r / n))^(n * t)\n - Continuous Compounding: P(e)^(r * t)");
+    }
+
+    public static void cooperGoodbye(){
+        displayMessage("Thank you for using Cooper's Compounding Interest Calculator!");
+    }
 }
