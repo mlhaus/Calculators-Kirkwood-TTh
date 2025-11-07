@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
 import static edu.kirkwood.view.MainMenu.showUnitsMenu;
+import static edu.kirkwood.view.Messages.asleGoodbye;
+import static edu.kirkwood.view.Messages.asleGreet;
 import static edu.kirkwood.view.UIUtility.*;
 import static edu.kirkwood.view.UserInput.getInt;
 import static edu.kirkwood.view.UserInput.getString;
