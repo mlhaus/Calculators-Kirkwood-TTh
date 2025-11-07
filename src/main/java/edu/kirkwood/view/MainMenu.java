@@ -15,6 +15,8 @@ public class MainMenu {
                 "Cooper's Compound Interest Calculator",
                 "Cael's Temperature Calculator",
                 "Emilia's Pythagorean Theorem Calculator",
+                "Asle's Measurement Calculator",
+                "Cel's Metric Conversion Calculator",
                 "Quit"
         };
         String menuTitle = "Main Menu";
@@ -45,6 +47,10 @@ public class MainMenu {
                     break;
                 case 8:
                     AslesMeasurementCalculator.start();
+                    break;
+                case 9:
+                    CelesteMetricMeasurementCalculator.start();
+                    break;
                 default:
                     return;
             }

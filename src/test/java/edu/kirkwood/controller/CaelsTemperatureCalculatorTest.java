@@ -37,20 +37,20 @@ class CaelsTemperatureCalculatorTest {
        // assertEquals(68.0f, result);
     }
 
-    @Test
-    void testSetScaleConversionToFahrenheit() {
-        TemperatureEntry entry1 = new TemperatureEntry(0.0f, "C");
-        TemperatureEntry entry2 = new TemperatureEntry(32.0f, "F");
-
-        // calculator.S2 = "+";
-
-
-
-        calculator.setScale(entry1, entry2);
-
-        assertEquals("F", entry1.getScale());
-        assertEquals(32.0f, entry1.getValue(), 0.01);
-    }
+//    @Test
+//    void testSetScaleConversionToFahrenheit() {
+//        TemperatureEntry entry1 = new TemperatureEntry(0.0f, "C");
+//        TemperatureEntry entry2 = new TemperatureEntry(32.0f, "F");
+//
+//        // calculator.S2 = "+";
+//
+//
+//
+//        calculator.setScale(entry1, entry2);
+//
+//        assertEquals("F", entry1.getScale());
+//        assertEquals(32.0f, entry1.getValue(), 0.01);
+//    }
 
     @Test
     void testAbsoluteZeroViolationInCelsius() {

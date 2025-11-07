@@ -12,6 +12,17 @@ public class Messages {
         displayMessage("Goodbye");
     }
 
+    public static void calculatorEnd() {
+        System.out.println("Quitting calculator...");
+    }
+
+    public static void celesteGreeting() {
+        displayMessage("Welcome to Cel's Metric Conversion Calculator!");
+        System.out.println("Input should be in the format [number] [unit]");
+        System.out.println("Examples: 10cm, 100 m");
+        System.out.println("Note: The only valid units are 'mm', 'cm', 'm', 'km'");
+    }
+
     public static void marcGreet() {
         displayMessage("Welcome to Marc's Fraction Calculator");
         System.out.println("Enter calculations in the format: [fraction] [operator] [fraction]");
