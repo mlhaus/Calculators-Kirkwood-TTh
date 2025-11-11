@@ -120,7 +120,12 @@ public class Temperature {
      */
     @Override
     public String toString() {
-        return String.format("%.2f°%s", degree, scale);
+        // Check if degree is a whole number
+        if(degree == (long) degree){
+            return String.format("%.0f°%s", degree, scale);
+        }else{
+            return String.format("%.2f°%s", degree, scale);
+        }
     }
 
      public String convertTo(String targetScale){
